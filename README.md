@@ -3,3 +3,21 @@ We present ConchShell, a multi-modal generative adversarial framework that takes
 The following are the overall model architecture.
 
 ![Model architecture](https://github.com/DIO385/ConchShell/blob/main/modules/ConchShell.jpg)
+### Envs
+1. Python >= 3.7
+2. Clone this repository:
+```bash
+git https://github.com/yl4579/StarGANv2-VC.git
+cd StarGANv2-VC
+```
+3. Install python requirements: 
+```bash
+pip install SoundFile torchaudio munch parallel_wavegan torch pydub
+```
+4. Download the [BOPD dataset](https://datashare.ed.ac.uk/handle/10283/3443) 
+Then put the dataset into the 'dataset' folder.
+
+## Training
+```bash
+python3 -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --node_rank=0 --master_port=9999 train.py
+```
