@@ -31,4 +31,8 @@ For example:
 ```bash
 python3 -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --node_rank 0 --master_port 8888 inference.py --img_path img.jpg --checkpoint ../checkpoints/G-epoch=1000.pth
 ```  	
-	
+## Acknowledgement
+The authors would like to thank for their great repositories and valuable discussions.
+- [openai/jukebox](https://github.com/openai/jukebox)
+- [I3D](https://github.com/open-mmlab/mmaction2)
+- [L-YeZhu/D2M-GAN](https://github.com/l-yezhu/d2m-gan)
