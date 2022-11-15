@@ -1,0 +1,7 @@
+librosa
+thop
+tqdm
+fire
+pandas
+matplotlib
+openpyxl
