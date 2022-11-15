@@ -3,21 +3,31 @@ We present ConchShell, a multi-modal generative adversarial framework that takes
 The following are the overall model architecture.
 
 ![Model architecture](https://github.com/DIO385/ConchShell/blob/main/modules/ConchShell.jpg)
-### Envs
+## Envs
 1. Python >= 3.7
 2. Clone this repository:
 ```bash
-git https://github.com/yl4579/StarGANv2-VC.git
-cd StarGANv2-VC
+git https://github.com/DIO385/ConchShell.git
 ```
 3. Install python requirements: 
 ```bash
-pip install SoundFile torchaudio munch parallel_wavegan torch pydub
+pip install -r requirements.txt
 ```
-4. Download the [BOPD dataset](https://datashare.ed.ac.uk/handle/10283/3443) 
+4. Download the [BOPD dataset](https://drive.google.com/file/d/1rLzLIJuxrz4lQO7G-9fP0UvJ_ADQjwRf/view?usp=share_link) 
 Then put the dataset into the 'dataset' folder.
 
 ## Training
 ```bash
 python3 -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --node_rank=0 --master_port=9999 train.py
 ```
+
+## Inference
+1. Download the [I3D model]() and place it in the bb folder.
+Then put the checkpoint into the 'I3D/I3D_models' folder.
+
+	python3 -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --node_rank 0 --master_port 8888 inference.py --img_path {img_path} --checkpoint {checkpoint}
+	
+For example:
+
+	python3 -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --node_rank 0 --master_port 8888 inference.py --img_path img.jpg --checkpoint ../checkpoints/G-epoch=1000.pth
+	
